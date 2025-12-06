@@ -4,35 +4,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        let messages = [];
+        let isValid = true;
 
         const userNameInput = document.getElementById('username').value.trim();
         const usernameerror = document.getElementById('usernameError');
 
         if (userNameInput.value.length < 3) {
-            usernameerror.textContent = 'Username must be at least 3 characters long.';
-            return;
-        } else {
-            usernameerror.textContent = '';
+            messages.push('Username must be at least 3 characters long.');
+            isValid = false;
         }
+        usernameerror.textContent = messages.find(msg => msg.includes('username')) || '';
 
         const emailInput = document.getElementById('email').value.trim();
         const emailerror = document.getElementById('emailError');
         const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
         if (!emailInput.value.match(pattern)) {
-            emailerror.textContent = 'Please enter a valid email address.';
-            return;
-        } else {
-            emailerror.textContent = '';
+            messages.push('Please enter a valid email address.');
+            isValid = false;
         }
+        emailerror.textContent = messages.find(msg => msg.includes('email')) || '';
+
 
         const passwordInput = document.getElementById('password');
         const passworderror = document.getElementById('passwordError');
         if (passwordInput.value.length < 6) {
-            passworderror.textContent = 'Password must be at least 6 characters long.';
-            return;
-        } else {
-            passworderror.textContent = '';
+            messages.push('Password must be at least 6 characters long.');
+            isValid = false;
         }
+        passworderror.textContent = messages.find(msg => msg.includes('Password')) || '';
         feedbackDiv.textContent = 'Form submitted successfully!';
         form.submit();
     });
