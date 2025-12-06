@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const userNameInput = document.getElementById('username');
+        const userNameInput = document.getElementById('username').value.trim();
         const usernameerror = document.getElementById('usernameError');
 
         if (userNameInput.value.length < 3) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             usernameerror.textContent = '';
         }
 
-        const emailInput = document.getElementById('email');
+        const emailInput = document.getElementById('email').value.trim();
         const emailerror = document.getElementById('emailError');
         const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
         if (!emailInput.value.match(pattern)) {
