@@ -33,7 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false;
         }
         passworderror.textContent = messages.find(msg => msg.includes('Password')) || '';
-        feedbackDiv.textContent = 'Form submitted successfully!';
-        form.submit();
-    });
+        feedbackDiv.style, display = 'block  ';
+        if (isValid) {
+            feedbackDiv.textContent = 'Registration successful!';
+            feedbackDiv.style.color = '#28a745';
+            form.submit();
+        } else {
+            feedbackDiv.innerHTML = messages.join('<br>');
+            feedbackDiv.style.color = "#dc3545"
+
+
+            feedbackDiv.textContent = 'Form submitted successfully!';
+            form.submit();
+        });
 });
