@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let messages = [];
         let isValid = true;
 
-        const userNameInput = document.getElementById('username').value.trim();
+        const username = document.getElementById('username').value.trim();
         const usernameerror = document.getElementById('usernameError');
 
-        if (userNameInput.value.length < 3) {
+        if (username.length < 3) {
             messages.push('Username must be at least 3 characters long.');
             isValid = false;
         }
