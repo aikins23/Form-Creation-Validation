@@ -24,7 +24,7 @@ form.addEventListener('submit', function (event) {
         emailerror.textContent = '';
     }
 
-    passwordInput = document.getElementById('password');
+    const passwordInput = document.getElementById('password');
     const passworderror = document.getElementById('passwordError');
     if (passwordInput.value.length < 6) {
         passworderror.textContent = 'Password must be at least 6 characters long.';
