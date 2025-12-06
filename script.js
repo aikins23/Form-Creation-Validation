@@ -16,19 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         usernameerror.textContent = messages.find(msg => msg.includes('username')) || '';
 
-        const emailInput = document.getElementById('email').value.trim();
+        const email = document.getElementById('email').value.trim();
         const emailerror = document.getElementById('emailError');
         const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!emailInput.value.match(pattern)) {
+        if (!email.match(pattern)) {
             messages.push('Please enter a valid email address.');
             isValid = false;
         }
         emailerror.textContent = messages.find(msg => msg.includes('email')) || '';
 
 
-        const passwordInput = document.getElementById('password');
+        const password = document.getElementById('password');
         const passworderror = document.getElementById('passwordError');
-        if (passwordInput.value.length < 6) {
+        if (password.length < 6) {
             messages.push('Password must be at least 6 characters long.');
             isValid = false;
         }
